@@ -11,7 +11,7 @@ const Start = (props) => {
     <View style={styles.Container}>
       <View style={styles.star}>
         <Text style={styles.singer}>
-          <Feather name="type" size={19} color="#FFF" /> Gendre : Pop
+          <Feather name="type" size={19} color="#FFF" /> Genre : Pop
           {"                  "}
          Reting : <AntDesign name="star" size={19} color="#FFF" />
          <AntDesign name="star" size={19} color="#FFF" />
