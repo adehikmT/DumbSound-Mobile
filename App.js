@@ -1,21 +1,59 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StatusBar } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+//Screeens
+import HomeScreen from "./src/screens/landing/Home";
+import LogReg from "./src/screens/landing/LogReg";
+import Login from "./src/screens/auth/Login";
+import Regis from "./src/screens/auth/Register";
+import Music from "./src/screens/DetailMusic";
+import HomeMusic from "./src/screens/Home"
+
+const Main = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <StatusBar barStyle="light-content" />
+      <Main.Navigator
+        screenOptions={{
+          headerStyle: { backgroundColor: "#EE4622" },
+          headerTintColor: "#FFFFFF",
+        }}
+      >
+        <Main.Screen
+          name="Home"
+          options={{ headerShown: false }}
+          component={HomeScreen}
+        />
+        <Main.Screen
+          options={{ headerShown: false }}
+          name="Auth"
+          component={LogReg}
+        />
+        <Main.Screen
+          options={{ headerShown: false }}
+          name="Login"
+          component={Login}
+        />
+        <Main.Screen
+          options={{ headerShown: false }}
+          name="Regis"
+          component={Regis}
+        />
+        <Main.Screen
+          options={{ headerShown: false }}
+          name="Music"
+          component={Music}
+        />
+        <Main.Screen
+          options={{ headerShown: false }}
+          name="HomeMusic"
+          component={HomeMusic}
+        />
+      </Main.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
